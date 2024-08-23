@@ -24,7 +24,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://cyber-hunter-club-registration.vercel.app", // allow specific origin
+    origin: "https://www.cyberhunter.club", // allow specific origin
     methods: ["GET", "POST", "PUT", "DELETE"], // allowed HTTP methods
     credentials: true, // if your API requires cookies or HTTP authentication
   })
