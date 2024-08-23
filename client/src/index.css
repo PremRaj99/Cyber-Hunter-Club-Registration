@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html, body {
+  @apply bg-slate-900
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff; /* Sets the text color */
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset; /* Makes the background transparent */
+  transition: background-color 5000s ease-in-out 0s; /* Prevents background from flashing white */
+}

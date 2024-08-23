@@ -1,0 +1,33 @@
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import cors from "cors"
+
+// define all routes
+import userRoutes from "./routes/user.route.js";
+import verifyRoutes from "./routes/verify.route.js";
+
+dotenv.config();
+
+mongoose
+  .connect(process.env.MONGO)
+  .then(() => {
+    console.log("MongoDb is connected");
+  })
+  .catch((error) => {
+    console.log(error.message);
+  });
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(express.json());
+app.use(cors());
+
+// all api routers
+app.use("/api", userRoutes);
+app.use("/api/verify", verifyRoutes);
+
+app.listen(port, () => {
+  console.log("Server is running on :", port);
+});

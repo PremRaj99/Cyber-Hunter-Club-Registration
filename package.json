@@ -1,0 +1,21 @@
+{
+  "name": "cyber-hunter-club-registration-backend-2024",
+  "version": "1.0.0",
+  "description": "backend for club registration",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon api/index.js",
+    "start": "node api/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.3",
+    "nodemailer": "^6.9.14",
+    "razorpay": "^2.9.4"
+  }
+}

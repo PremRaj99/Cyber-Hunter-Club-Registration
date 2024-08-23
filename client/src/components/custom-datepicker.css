@@ -1,0 +1,16 @@
+/* custom-datepicker.css */
+.datepicker-dropdown {
+    max-width: 200px !important; /* Set max width */
+    width: 200px !important; /* Set a fixed width */
+    font-size: 12px !important; /* Adjust font size */
+    padding: 8px !important; /* Adjust padding */
+  }
+  
+  .datepicker-calendar {
+    font-size: 12px !important; /* Adjust font size for calendar */
+  }
+  
+  .datepicker-container {
+    padding: 8px !important; /* Adjust container padding */
+  }
+  
