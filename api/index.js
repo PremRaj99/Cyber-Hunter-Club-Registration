@@ -22,16 +22,16 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(
-  cors()
-);
 // app.use(
-//   cors({
-//     origin: "https://www.cyberhunter.club", // allow specific origin
-//     methods: ["GET", "POST", "PUT", "DELETE"], // allowed HTTP methods
-//     credentials: true, // if your API requires cookies or HTTP authentication
-//   })
+//   cors()
 // );
+app.use(
+  cors({
+    origin: "https://www.cyberhunter.club", // allow specific origin
+    methods: ["GET", "POST", "PUT", "DELETE"], // allowed HTTP methods
+    credentials: true, // if your API requires cookies or HTTP authentication
+  })
+);
 
 // all api routers
 app.use("/api", userRoutes);
