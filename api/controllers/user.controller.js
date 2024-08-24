@@ -34,23 +34,23 @@ export const create = async (req, res) => {
       res.status(400).json("Phone Number should be of 10 digits");
     }
 
-    const ifQIdexist = await User.findOne({ qId });
+    // const ifQIdexist = await User.findOne({ qId });
 
-    if (ifQIdexist) {
-      return res.status(400).json("Q.Id already exist!");
-    }
+    // if (ifQIdexist) {
+    //   return res.status(400).json("Q.Id already exist!");
+    // }
 
-    const ifEmailexist = await User.findOne({ email });
+    // const ifEmailexist = await User.findOne({ email });
 
-    if (ifEmailexist) {
-      return res.status(400).json("Email already exist!");
-    }
+    // if (ifEmailexist) {
+    //   return res.status(400).json("Email already exist!");
+    // }
 
-    const ifPhoneexist = await User.findOne({ phoneNumber });
+    // const ifPhoneexist = await User.findOne({ phoneNumber });
 
-    if (ifPhoneexist) {
-      return res.status(400).json("Phone number already exist!");
-    }
+    // if (ifPhoneexist) {
+    //   return res.status(400).json("Phone number already exist!");
+    // }
 
     // verifying RazorPay transaction
     // const { amount, currency, receipt } = req.body;

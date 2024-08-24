@@ -628,6 +628,8 @@ export default function Registration() {
               type="text"
               id="qId"
               onChange={handleChange}
+              maxLength={8}
+              minLength={8}
               placeholder="Q-Id"
               required
               className="w-full m-4 pl-10 md:pl-8 placeholder:font-semibold text-white bg-transparent border-[white] border-b border-0 outline-none focus:ring-2 focus:ring-transparent"
@@ -729,6 +731,8 @@ export default function Registration() {
               type="tel"
               id="phoneNumber"
               onChange={handleChange}
+              maxLength={10}
+              minLength={10}
               placeholder="Phone Number"
               required
               className="w-full m-4 pl-10 md:pl-8 placeholder:font-semibold  text-white bg-transparent border-[white] border-b border-0 outline-none focus:ring-2 focus:ring-transparent"
