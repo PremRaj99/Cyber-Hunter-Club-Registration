@@ -53,17 +53,17 @@ export const create = async (req, res) => {
     }
 
     // verifying RazorPay transaction
-    const { amount, currency, receipt } = req.body;
-    const options = {
-      amount: amount * 100, // Amount in paise (INR)
-      currency: currency,
-      receipt: receipt,
-    };
+    // const { amount, currency, receipt } = req.body;
+    // const options = {
+    //   amount: amount * 100, // Amount in paise (INR)
+    //   currency: currency,
+    //   receipt: receipt,
+    // };
 
-    const order = await razorpay.orders.create(options);
+    // const order = await razorpay.orders.create(options);
 
     // code here
-    if(order) {
+    // if(order) {
 
       const newRegistration = new User({
         name,
@@ -76,21 +76,22 @@ export const create = async (req, res) => {
         gender,
         branch,
         profilePicture,
-        transactionId: order.id,
+        transactionId: "order.id",
         transactionStatus: "pending",
       });
   
       const data = await newRegistration.save();
   
       if (data) {
-        res.status(200).json({ data: order });
+        
+        res.status(200).json({ data: "done"});
       } else {
         res.status(400).json(data.message);
       }
-    }
-    else {
-      res.status(400).json('Internal server error! Try again sometime.');
-    }
+    // }
+    // else {
+    //   res.status(400).json('Internal server error! Try again sometime.');
+    // }
   } catch (error) {
     res.status(400).json(error.message);
   }

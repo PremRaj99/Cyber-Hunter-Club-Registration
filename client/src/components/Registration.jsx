@@ -66,7 +66,7 @@ export default function Registration() {
       },
       (error) => {
         setImageFileUploadError(
-          "Couldn't upload an image (File must be less then 2MB or not in Image Formet)"
+          "Couldn't upload an image (File must be less then 5MB or not in Image Formet)"
         );
         setImageFileUploadingProgress(null);
         setImageFile(null);
@@ -129,14 +129,16 @@ export default function Registration() {
         },
         body: JSON.stringify({
           ...formData,
-          amount: 52,
-          currency: "INR",
-          receipt: "receipt#1",
+          // amount: 103,
+          // currency: "INR",
+          // receipt: "receipt#1",
         }),
       });
 
       // Handle the response from the server
       const { data } = await response.json();
+
+      window.open("https://pages.razorpay.com/cyber-hunter-registration");
 
       // Check if order creation was successful
       if (!response.ok) {
@@ -144,66 +146,66 @@ export default function Registration() {
       }
 
       // Destructure the response data to get the order details
-      const { id: order_id, currency } = data;
+      // const { id: order_id, currency } = data;
 
       // Set up Razorpay payment options
-      const options = {
-        key: import.meta.env.VITE_RAZORPAY_KEY_ID, // Ensure this matches your .env file
-        amount: 52 * 100, // Amount in paise (INR)
-        currency: currency,
-        order_id: order_id,
-        name: "Cyber Hunter",
-        description: "Test Transaction",
-        image: logo,
-        handler: async function (response) {
-          const paymentId = response.razorpay_payment_id;
-          const orderId = response.razorpay_order_id;
-          const signature = response.razorpay_signature;
+      // const options = {
+      //   key: import.meta.env.VITE_RAZORPAY_KEY_ID, // Ensure this matches your .env file
+      //   amount: 103 * 100, // Amount in paise (INR)
+      //   currency: currency,
+      //   order_id: order_id,
+      //   name: "Cyber Hunter",
+      //   description: "Test Transaction",
+      //   image: logo,
+      //   handler: async function (response) {
+      //     const paymentId = response.razorpay_payment_id;
+      //     const orderId = response.razorpay_order_id;
+      //     const signature = response.razorpay_signature;
 
-          try {
-            // Verify payment on the backend
-            const verifyResponse = await fetch(
-              `${import.meta.env.VITE_API_URL}/api/verify-payment`,
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ paymentId, orderId, signature }),
-              }
-            );
+      //     try {
+      //       // Verify payment on the backend
+      //       const verifyResponse = await fetch(
+      //         `${import.meta.env.VITE_API_URL}/api/verify-payment`,
+      //         {
+      //           method: "POST",
+      //           headers: {
+      //             "Content-Type": "application/json",
+      //           },
+      //           body: JSON.stringify({ paymentId, orderId, signature }),
+      //         }
+      //       );
 
-            const verifyData = await verifyResponse.json();
+      //       const verifyData = await verifyResponse.json();
 
-            // Handle payment verification response
-            if (verifyData.status === "success") {
-              alert("Payment Successful");
-            } else {
-              alert("Payment Verification Failed");
-            }
-          } catch (error) {
-            toast.error("Payment verification failed. Please try again.");
-          }
-        },
-        prefill: {
-          name: formData.name,
-          email: formData.email,
-          contact: formData.phoneNumber,
-        },
-        notes: {
-          address: "Razorpay Corporate Office",
-        },
-        theme: {
-          color: "#3399cc",
-        },
-      };
+      //       // Handle payment verification response
+      //       if (verifyData.status === "success") {
+      //         alert("Payment Successful");
+      //       } else {
+      //         alert("Payment Verification Failed");
+      //       }
+      //     } catch (error) {
+      //       toast.error("Payment verification failed. Please try again.");
+      //     }
+      //   },
+      //   prefill: {
+      //     name: formData.name,
+      //     email: formData.email,
+      //     contact: formData.phoneNumber,
+      //   },
+      //   notes: {
+      //     address: "Razorpay Corporate Office",
+      //   },
+      //   theme: {
+      //     color: "#3399cc",
+      //   },
+      // };
 
       // Initialize Razorpay payment
-      const rzp1 = new window.Razorpay(options);
-      rzp1.open();
+      // const rzp1 = new window.Razorpay(options);
+      // rzp1.open();
     } catch (error) {
       // Handle errors in creating an order or during payment processing
-      toast.error(error.message || "An error occurred. Please try again.");
+      toast.error(error || "An error occurred. Please try again.");
     }
   };
   const handleSubmit100 = async () => {
@@ -239,14 +241,16 @@ export default function Registration() {
         },
         body: JSON.stringify({
           ...formData,
-          amount: 103,
-          currency: "INR",
-          receipt: "receipt#1",
+          // amount: 103,
+          // currency: "INR",
+          // receipt: "receipt#1",
         }),
       });
 
       // Handle the response from the server
       const { data } = await response.json();
+
+      window.open("https://pages.razorpay.com/Cyber-hunter-Id-card-Registrat");
 
       // Check if order creation was successful
       if (!response.ok) {
@@ -254,66 +258,66 @@ export default function Registration() {
       }
 
       // Destructure the response data to get the order details
-      const { id: order_id, currency } = data;
+      // const { id: order_id, currency } = data;
 
       // Set up Razorpay payment options
-      const options = {
-        key: import.meta.env.VITE_RAZORPAY_KEY_ID, // Ensure this matches your .env file
-        amount: 103 * 100, // Amount in paise (INR)
-        currency: currency,
-        order_id: order_id,
-        name: "Cyber Hunter",
-        description: "Test Transaction",
-        image: logo,
-        handler: async function (response) {
-          const paymentId = response.razorpay_payment_id;
-          const orderId = response.razorpay_order_id;
-          const signature = response.razorpay_signature;
+      // const options = {
+      //   key: import.meta.env.VITE_RAZORPAY_KEY_ID, // Ensure this matches your .env file
+      //   amount: 103 * 100, // Amount in paise (INR)
+      //   currency: currency,
+      //   order_id: order_id,
+      //   name: "Cyber Hunter",
+      //   description: "Test Transaction",
+      //   image: logo,
+      //   handler: async function (response) {
+      //     const paymentId = response.razorpay_payment_id;
+      //     const orderId = response.razorpay_order_id;
+      //     const signature = response.razorpay_signature;
 
-          try {
-            // Verify payment on the backend
-            const verifyResponse = await fetch(
-              `${import.meta.env.VITE_API_URL}/api/verify-payment`,
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ paymentId, orderId, signature }),
-              }
-            );
+      //     try {
+      //       // Verify payment on the backend
+      //       const verifyResponse = await fetch(
+      //         `${import.meta.env.VITE_API_URL}/api/verify-payment`,
+      //         {
+      //           method: "POST",
+      //           headers: {
+      //             "Content-Type": "application/json",
+      //           },
+      //           body: JSON.stringify({ paymentId, orderId, signature }),
+      //         }
+      //       );
 
-            const verifyData = await verifyResponse.json();
+      //       const verifyData = await verifyResponse.json();
 
-            // Handle payment verification response
-            if (verifyData.status === "success") {
-              alert("Payment Successful");
-            } else {
-              alert("Payment Verification Failed");
-            }
-          } catch (error) {
-            toast.error("Payment verification failed. Please try again.");
-          }
-        },
-        prefill: {
-          name: formData.name,
-          email: formData.email,
-          contact: formData.phoneNumber,
-        },
-        notes: {
-          address: "Razorpay Corporate Office",
-        },
-        theme: {
-          color: "#3399cc",
-        },
-      };
+      //       // Handle payment verification response
+      //       if (verifyData.status === "success") {
+      //         alert("Payment Successful");
+      //       } else {
+      //         alert("Payment Verification Failed");
+      //       }
+      //     } catch (error) {
+      //       toast.error("Payment verification failed. Please try again.");
+      //     }
+      //   },
+      //   prefill: {
+      //     name: formData.name,
+      //     email: formData.email,
+      //     contact: formData.phoneNumber,
+      //   },
+      //   notes: {
+      //     address: "Razorpay Corporate Office",
+      //   },
+      //   theme: {
+      //     color: "#3399cc",
+      //   },
+      // };
 
       // Initialize Razorpay payment
-      const rzp1 = new window.Razorpay(options);
-      rzp1.open();
+      // const rzp1 = new window.Razorpay(options);
+      // rzp1.open();
     } catch (error) {
       // Handle errors in creating an order or during payment processing
-      toast.error(error.message || "An error occurred. Please try again.");
+      toast.error(error || "An error occurred. Please try again.");
     }
   };
   // const handleSubmit50 = async () => {
