@@ -63,28 +63,33 @@ export const create = async (req, res) => {
     const order = await razorpay.orders.create(options);
 
     // code here
+    if(order) {
 
-    const newRegistration = new User({
-      name,
-      qId,
-      course,
-      sessionYear,
-      section,
-      email,
-      phoneNumber,
-      gender,
-      branch,
-      profilePicture,
-      transactionId: order.id,
-      transactionStatus: "pending",
-    });
-
-    const data = await newRegistration.save();
-
-    if (data) {
-      res.status(200).json({ data: order });
-    } else {
-      res.status(400).json(data.message);
+      const newRegistration = new User({
+        name,
+        qId,
+        course,
+        sessionYear,
+        section,
+        email,
+        phoneNumber,
+        gender,
+        branch,
+        profilePicture,
+        transactionId: order.id,
+        transactionStatus: "pending",
+      });
+  
+      const data = await newRegistration.save();
+  
+      if (data) {
+        res.status(200).json({ data: order });
+      } else {
+        res.status(400).json(data.message);
+      }
+    }
+    else {
+      res.status(400).json('Internal server error! Try again sometime.');
     }
   } catch (error) {
     res.status(400).json(error.message);

@@ -316,12 +316,232 @@ export default function Registration() {
       toast.error(error.message || "An error occurred. Please try again.");
     }
   };
-  
+  // const handleSubmit50 = async () => {
+  //   // Check if terms are accepted
+  //   if (!termsAccepted) {
+  //     toast.error("Please accept the terms and conditions.");
+  //     return; // Exit function
+  //   }
+
+  //   // Check if all required form fields are filled
+  //   if (
+  //     !formData.name ||
+  //     !formData.qId ||
+  //     !formData.course ||
+  //     !formData.sessionYear ||
+  //     !formData.section ||
+  //     !formData.email ||
+  //     !formData.phoneNumber ||
+  //     !formData.gender ||
+  //     !formData.branch ||
+  //     !formData.profilePicture
+  //   ) {
+  //     toast.error("Please fill all the required fields.");
+  //     return; // Exit function
+  //   }
+
+  //   try {
+  //     // Send a POST request to create an order
+  //     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/`, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         ...formData,
+  //         amount: 52,
+  //         currency: "INR",
+  //         receipt: "receipt#1",
+  //       }),
+  //     });
+
+  //     // Handle the response from the server
+  //     const { data } = await response.json();
+
+  //     // Check if order creation was successful
+  //     if (!response.ok) {
+  //       throw new Error(data.message || "Failed to create order");
+  //     }
+
+  //     // Destructure the response data to get the order details
+  //     const { id: order_id, currency } = data;
+
+  //     // Set up Razorpay payment options
+  //     const options = {
+  //       key: import.meta.env.VITE_RAZORPAY_KEY_ID, // Ensure this matches your .env file
+  //       amount: 52 * 100, // Amount in paise (INR)
+  //       currency: currency,
+  //       order_id: order_id,
+  //       name: "Cyber Hunter",
+  //       description: "Test Transaction",
+  //       image: logo,
+  //       handler: async function (response) {
+  //         const paymentId = response.razorpay_payment_id;
+  //         const orderId = response.razorpay_order_id;
+  //         const signature = response.razorpay_signature;
+
+  //         try {
+  //           // Verify payment on the backend
+  //           const verifyResponse = await fetch(
+  //             `${import.meta.env.VITE_API_URL}/api/verify-payment`,
+  //             {
+  //               method: "POST",
+  //               headers: {
+  //                 "Content-Type": "application/json",
+  //               },
+  //               body: JSON.stringify({ paymentId, orderId, signature }),
+  //             }
+  //           );
+
+  //           const verifyData = await verifyResponse.json();
+
+  //           // Handle payment verification response
+  //           if (verifyData.status === "success") {
+  //             alert("Payment Successful");
+  //           } else {
+  //             alert("Payment Verification Failed");
+  //           }
+  //         } catch (error) {
+  //           toast.error("Payment verification failed. Please try again.");
+  //         }
+  //       },
+  //       prefill: {
+  //         name: formData.name,
+  //         email: formData.email,
+  //         contact: formData.phoneNumber,
+  //       },
+  //       notes: {
+  //         address: "Razorpay Corporate Office",
+  //       },
+  //       theme: {
+  //         color: "#3399cc",
+  //       },
+  //     };
+
+  //     // Initialize Razorpay payment
+  //     const rzp1 = new window.Razorpay(options);
+  //     rzp1.open();
+  //   } catch (error) {
+  //     // Handle errors in creating an order or during payment processing
+  //     toast.error(error.message || "An error occurred. Please try again.");
+  //   }
+  // };
+  // const handleSubmit100 = async () => {
+  //   // Check if terms are accepted
+  //   if (!termsAccepted) {
+  //     toast.error("Please accept the terms and conditions.");
+  //     return; // Exit function
+  //   }
+
+  //   // Check if all required form fields are filled
+  //   if (
+  //     !formData.name ||
+  //     !formData.qId ||
+  //     !formData.course ||
+  //     !formData.sessionYear ||
+  //     !formData.section ||
+  //     !formData.email ||
+  //     !formData.phoneNumber ||
+  //     !formData.gender ||
+  //     !formData.branch ||
+  //     !formData.profilePicture
+  //   ) {
+  //     toast.error("Please fill all the required fields.");
+  //     return; // Exit function
+  //   }
+
+  //   try {
+  //     // Send a POST request to create an order
+  //     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/`, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         ...formData,
+  //         amount: 103,
+  //         currency: "INR",
+  //         receipt: "receipt#1",
+  //       }),
+  //     });
+
+  //     // Handle the response from the server
+  //     const { data } = await response.json();
+
+  //     // Check if order creation was successful
+  //     if (!response.ok) {
+  //       throw new Error(data.message || "Failed to create order");
+  //     }
+
+  //     // Destructure the response data to get the order details
+  //     const { id: order_id, currency } = data;
+
+  //     // Set up Razorpay payment options
+  //     const options = {
+  //       key: import.meta.env.VITE_RAZORPAY_KEY_ID, // Ensure this matches your .env file
+  //       amount: 103 * 100, // Amount in paise (INR)
+  //       currency: currency,
+  //       order_id: order_id,
+  //       name: "Cyber Hunter",
+  //       description: "Test Transaction",
+  //       image: logo,
+  //       handler: async function (response) {
+  //         const paymentId = response.razorpay_payment_id;
+  //         const orderId = response.razorpay_order_id;
+  //         const signature = response.razorpay_signature;
+
+  //         try {
+  //           // Verify payment on the backend
+  //           const verifyResponse = await fetch(
+  //             `${import.meta.env.VITE_API_URL}/api/verify-payment`,
+  //             {
+  //               method: "POST",
+  //               headers: {
+  //                 "Content-Type": "application/json",
+  //               },
+  //               body: JSON.stringify({ paymentId, orderId, signature }),
+  //             }
+  //           );
+
+  //           const verifyData = await verifyResponse.json();
+
+  //           // Handle payment verification response
+  //           if (verifyData.status === "success") {
+  //             alert("Payment Successful");
+  //           } else {
+  //             alert("Payment Verification Failed");
+  //           }
+  //         } catch (error) {
+  //           toast.error("Payment verification failed. Please try again.");
+  //         }
+  //       },
+  //       prefill: {
+  //         name: formData.name,
+  //         email: formData.email,
+  //         contact: formData.phoneNumber,
+  //       },
+  //       notes: {
+  //         address: "Razorpay Corporate Office",
+  //       },
+  //       theme: {
+  //         color: "#3399cc",
+  //       },
+  //     };
+
+  //     // Initialize Razorpay payment
+  //     const rzp1 = new window.Razorpay(options);
+  //     rzp1.open();
+  //   } catch (error) {
+  //     // Handle errors in creating an order or during payment processing
+  //     toast.error(error.message || "An error occurred. Please try again.");
+  //   }
+  // };
+
   return (
     <div className="relative z-10 w-full h-auto flex flex-col justify-center items-center px-4 md:my-0 my-10 md:px-0">
       <h3 className="my-8 text-white font-medium text-center">
         Register Yourself with{" "}
-        <span className="text-[#5CE1E6]">CYBER HUNTER CLUB</span>
+        <span className="text-[#00D8FF]">CYBER HUNTER CLUB</span>
       </h3>
 
       <form
@@ -372,6 +592,14 @@ export default function Registration() {
             }`}
           />
         </div>
+        <button
+          className="bg-[#00D8FF] px-4 py-1 text-white my-4 rounded-md"
+          onClick={() => {
+            filePickerRef.current.click();
+          }}
+        >
+          Upload Image Here
+        </button>
         {imageFileUploadError && (
           <Alert color="failure">{imageFileUploadError}</Alert>
         )}
@@ -379,7 +607,7 @@ export default function Registration() {
         {/* 1st row */}
         <div className="w-full flex flex-col md:flex-row mt-8 justify-evenly items-center">
           <div className="relative w-10/12 md:w-3/12">
-            <IoMdPerson className="absolute left-4 top-6 text-[#5CE1E6] h-6 w-6" />
+            <IoMdPerson className="absolute left-4 top-6 text-[#00D8FF] h-6 w-6" />
             <input
               type="text"
               id="name"
@@ -391,7 +619,7 @@ export default function Registration() {
           </div>
           {/*  */}
           <div className="relative w-10/12 md:w-3/12">
-            <FaIdCard className="absolute left-4 top-6 text-[#5CE1E6] h-6 w-6" />
+            <FaIdCard className="absolute left-4 top-6 text-[#00D8FF] h-6 w-6" />
             <input
               type="text"
               id="qId"
@@ -404,7 +632,7 @@ export default function Registration() {
         </div>
         <div className="w-full flex flex-col md:flex-row justify-evenly items-center">
           <div className="relative w-10/12 md:w-3/12">
-            <MdEmail className="absolute left-4 top-6 text-[#5CE1E6] h-6 w-6" />
+            <MdEmail className="absolute left-4 top-6 text-[#00D8FF] h-6 w-6" />
             <input
               type="email"
               id="email"
@@ -415,7 +643,7 @@ export default function Registration() {
             />
           </div>
           <div className="relative w-10/12 md:w-3/12">
-            <IoIosArrowForward className="absolute left-2 top-6 text-[#5CE1E6] h-6 w-6" />
+            <IoIosArrowForward className="absolute left-2 top-6 text-[#00D8FF] h-6 w-6" />
             <select
               required
               id="gender"
@@ -433,7 +661,7 @@ export default function Registration() {
         {/* 2nd row */}
         <div className="w-full flex flex-col md:flex-row justify-evenly items-center">
           <div className="relative w-10/12 md:w-3/12">
-            <IoIosArrowForward className="absolute left-2 top-6 text-[#5CE1E6] h-6 w-6" />
+            <IoIosArrowForward className="absolute left-2 top-6 text-[#00D8FF] h-6 w-6" />
             <select
               required
               id="course"
@@ -448,7 +676,7 @@ export default function Registration() {
             </select>
           </div>
           <div className="relative w-10/12 md:w-3/12">
-            <IoIosArrowForward className="absolute left-2 top-6 text-[#5CE1E6] h-6 w-6" />
+            <IoIosArrowForward className="absolute left-2 top-6 text-[#00D8FF] h-6 w-6" />
             <input
               type="text"
               id="branch"
@@ -463,7 +691,7 @@ export default function Registration() {
         {/* 3rd row */}
         <div className="w-full flex flex-col md:flex-row justify-evenly items-center">
           <div className="relative w-10/12 md:w-3/12">
-            <IoIosArrowForward className="absolute left-2 top-6 text-[#5CE1E6] h-6 w-6" />
+            <IoIosArrowForward className="absolute left-2 top-6 text-[#00D8FF] h-6 w-6" />
             <select
               required
               onChange={handleChange}
@@ -478,7 +706,7 @@ export default function Registration() {
             </select>
           </div>
           <div className="relative w-10/12 md:w-3/12">
-            <IoIosArrowForward className="absolute left-2 top-6 text-[#5CE1E6] h-6 w-6" />
+            <IoIosArrowForward className="absolute left-2 top-6 text-[#00D8FF] h-6 w-6" />
             <input
               type="text"
               id="section"
@@ -492,7 +720,7 @@ export default function Registration() {
         {/* 4th row */}
         <div className="w-full flex flex-col md:flex-row justify-evenly items-center">
           <div className="relative w-10/12 md:w-3/12">
-            <FaPhoneAlt className="absolute left-4 top-6 text-[#5CE1E6] h-6 w-6" />
+            <FaPhoneAlt className="absolute left-4 top-6 text-[#00D8FF] h-6 w-6" />
             <input
               type="tel"
               id="phoneNumber"
@@ -516,7 +744,7 @@ export default function Registration() {
             />
             <label htmlFor="terms" className="text-white">
               I accept the{" "}
-              <span className="text-[#5CE1E6] cursor-pointer">
+              <span className="text-[#00D8FF] cursor-pointer">
                 terms and conditions
               </span>
             </label>
@@ -537,15 +765,19 @@ export default function Registration() {
                 </h2>
                 <div className=" flex items-center text-sm gap-2">
                   <FaCheckCircle />
-                  <p>Club Registration</p>
+                  <p className="w-64">Club Registration</p>
                 </div>
                 <div className=" flex items-center text-sm gap-2">
                   <FaCheckCircle />
-                  <p>Club Classes and Guidence</p>
+                  <p className="w-64">Club Classes and Guidence</p>
                 </div>
                 <div className=" flex items-center text-sm gap-2">
                   <FaCheckCircle />
-                  <p>Eligible For upcomming web services</p>
+                  <p className="w-64">Experience latest technology and be the part of Cyber Hunter activities</p>
+                </div>
+                <div className=" flex items-center text-sm gap-2">
+                  <FaCheckCircle />
+                  <p className="w-64">Experience the Cybersecurity and Fullstack Development with Blockchain</p>
                 </div>
                 <button
                   type="submit"
@@ -554,6 +786,11 @@ export default function Registration() {
                 >
                   Pay & Submit
                 </button>
+              </div>
+              <div className="flex items-center gap-2 w-full md:hidden ">
+                  <div className="flex-1 border h-0"></div>
+                  <p>OR</p>
+                  <div className="flex-1 border h-0"></div>
               </div>
               <div className="w-72 flex gap-2 flex-col rounded-lg border border-[#00D8FF] p-4">
                 <h4 className="font-semibold">
@@ -566,19 +803,23 @@ export default function Registration() {
                 </h2>
                 <div className=" flex items-center text-sm gap-2">
                   <FaCheckCircle />
-                  <p>Club Registration</p>
+                  <p className="w-64">Club Registration</p>
                 </div>
                 <div className=" flex items-center text-sm gap-2">
                   <FaCheckCircle />
-                  <p>Club Classes and Guidence</p>
+                  <p className="w-64">Club Classes and Guidence</p>
                 </div>
                 <div className=" flex items-center text-sm gap-2">
                   <FaCheckCircle />
-                  <p>Eligible For upcomming web services</p>
+                  <p className="w-64">Experience latest technology and be the part of Cyber Hunter activities</p>
                 </div>
                 <div className=" flex items-center text-sm gap-2">
                   <FaCheckCircle />
-                  <p>
+                  <p className="w-64">Experience the Cybersecurity and Fullstack Development with Blockchain</p>
+                </div>
+                <div className=" flex items-center text-sm gap-2">
+                  <FaCheckCircle />
+                  <p className="w-64">
                     Physical Id Card of{" "}
                     <span className="font-extrabold">
                       {" "}
