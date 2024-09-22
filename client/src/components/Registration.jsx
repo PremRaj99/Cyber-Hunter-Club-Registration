@@ -800,7 +800,7 @@ export default function Registration() {
                   <p>OR</p>
                   <div className="flex-1 border h-0"></div>
               </div>
-              <div className="w-72 flex gap-2 flex-col rounded-lg border border-[#00D8FF] p-4">
+              {/* <div className="w-72 flex gap-2 flex-col rounded-lg border border-[#00D8FF] p-4">
                 <h4 className="font-semibold">
                   Club Registration <span className="text-sm">+</span>{" "}
                   <span className="text-[#00D8FF]">Official Id Card</span>
@@ -842,7 +842,7 @@ export default function Registration() {
                 >
                   Pay & Submit
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
